@@ -1,0 +1,16 @@
+{
+  "name": "@jorbites/events-cms-auth",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker OAuth provider for Sveltia CMS and Jorbites Events",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241004.0",
+    "typescript": "^5.8.2",
+    "wrangler": "^3.80.0"
+  }
+}
