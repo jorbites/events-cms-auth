@@ -1,6 +1,6 @@
 # Jorbites CMS Auth (Cloudflare Worker) 🔐
 
-A lightweight, secure Cloudflare Worker implementing the GitHub OAuth 2.0 exchange protocol for **Sveltia CMS** on [Jorbites Events](https://jorbites.github.io/events/admin/).
+A lightweight, secure Cloudflare Worker implementing the GitHub OAuth 2.0 exchange protocol for **Sveltia CMS** on [Jorbites Content Admin](https://jorbites.github.io/content/admin/).
 
 ---
 
@@ -10,8 +10,8 @@ A lightweight, secure Cloudflare Worker implementing the GitHub OAuth 2.0 exchan
 
 1. Open **GitHub** &rarr; navigate to your organization **`jorbites`** (or personal profile) &rarr; **Settings** &rarr; **Developer Settings** &rarr; **OAuth Apps** &rarr; **New OAuth App**.
 2. Fill in the fields:
-   - **Application name**: `Jorbites Events CMS`
-   - **Homepage URL**: `https://jorbites.github.io/events/admin/`
+   - **Application name**: `Jorbites Content CMS`
+   - **Homepage URL**: `https://jorbites.github.io/content/admin/`
    - **Authorization callback URL**:
      `https://jorbites-cms-auth.<your-cloudflare-subdomain>.workers.dev/callback`
 3. Click **Register application**.
@@ -26,7 +26,7 @@ A lightweight, secure Cloudflare Worker implementing the GitHub OAuth 2.0 exchan
 
 1. Navigate to this directory:
    ```bash
-   cd events-cms-auth
+   cd jorbites-cms-auth
    npm install
    ```
 
@@ -69,16 +69,16 @@ A lightweight, secure Cloudflare Worker implementing the GitHub OAuth 2.0 exchan
 
 ---
 
-### Step 3: Link Worker URL in `jorbites/events`
+### Step 3: Link Worker URL in `jorbites/content`
 
-In `jorbites/events` repository, open `admin/config.yml` and set:
+In `jorbites/content` repository, open `admin/config.yml` and set:
 ```yaml
 backend:
   name: github
-  repo: jorbites/events
+  repo: jorbites/content
   branch: main
   base_url: https://jorbites-cms-auth.<your-subdomain>.workers.dev
   auth_endpoint: auth
 ```
 
-That's it! When you visit `https://jorbites.github.io/events/admin/` and click **Login with GitHub**, Sveltia CMS will authenticate through your Cloudflare Worker cleanly.
+That's it! When you visit `https://jorbites.github.io/content/admin/` and click **Login with GitHub**, Sveltia CMS will authenticate through your Cloudflare Worker cleanly.
